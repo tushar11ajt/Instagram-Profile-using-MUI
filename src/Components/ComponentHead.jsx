@@ -5,24 +5,24 @@ import SwitchProfileSection from "../SwitchProfileSection";
 import styled from "@emotion/styled";
 
 
-const GridParent = styled(Grid)(({theme})=>({
-  height:'25.8rem',
-   [theme.breakpoints.down('md')]:{display:'grid',placeItems:'center',width:'100vw',height:'auto',boxSizing:'border-box',justifyContent:'normal',marginBottom:'1rem',}
-   
+const GridParent = styled(Grid)(({ theme }) => ({
+  height: '25.8rem',
+  [theme.breakpoints.down('md')]: { display: 'grid', placeItems: 'center', width: '100vw', height: 'auto', boxSizing: 'border-box', justifyContent: 'normal', marginBottom: '1rem', }
+
 }))
 
-const GridProfileImage = styled(Grid)(({theme})=>({
+const GridProfileImage = styled(Grid)(({ theme }) => ({
   display: 'flex',
-  alignItems:'center',
-  justifyContent:'center', 
-   paddingLeft: '3rem',
-   [theme.breakpoints.down('md')]:{paddingLeft: 0,height:'11.6rem'}
- 
-}))
-const SwitchProfileSectionStyled = styled(Button)(({theme})=>({
+  alignItems: 'center',
+  justifyContent: 'center',
+  paddingLeft: '3rem',
+  [theme.breakpoints.down('md')]: { paddingLeft: 0, height: '11.6rem' }
 
-   [theme.breakpoints.down('md')]:{display:'none'}
- 
+}))
+const SwitchProfileSectionStyled = styled(Button)(({ theme }) => ({
+
+  [theme.breakpoints.down('md')]: { display: 'none' }
+
 }))
 
 const BoxPostsFollowers = styled(Box)`font-weight: bold; font-size: 1.1rem
@@ -47,8 +47,9 @@ const ComponentHead = () => {
   const handleClose = (e) => {
 
     setAnchorEl(null);
-    setUserProfileData(instaUsersData[e.target.id])
-
+    if (e.target.id) {
+      setUserProfileData(instaUsersData[e.target.id])
+    }
   };
 
 
@@ -57,7 +58,7 @@ const ComponentHead = () => {
       <GridParent container >
         <GridProfileImage
           item
-          xs={12} sm ={5}
+          xs={12} sm={5}
         >
           <img
             className="profileImage"

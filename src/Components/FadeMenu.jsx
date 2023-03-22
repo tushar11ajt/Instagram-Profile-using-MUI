@@ -18,7 +18,7 @@ color:gray;font-weight:bold;`
 const MenuItemsList = styled(MenuItems)`
 width: 245px;
 display: flex;
-justifyF-content: space-between; `
+justify-content: space-between; `
 
 export default function FadeMenu() {
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -63,9 +63,13 @@ export default function FadeMenu() {
         if (e.target.id === 'Switch appearance' && themeChecker.palette.mode === 'light') {
             themeSelection(themes)
 
+
         }
         if (e.target.id === 'Switch appearance' && themeChecker.palette.mode === 'dark') {
             themeSelection(themes2)
+
+        }else if(e.target.id != 'Switch appearance'){
+        setAnchorEl(null);
 
         }
     }

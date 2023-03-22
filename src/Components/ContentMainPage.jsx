@@ -7,12 +7,19 @@ const GridStorySection = styled(Grid)`
 height: 11rem; `
 
 const ImageListItemStyled = styled(ImageListItem)(({theme})=>({
+  transition: "0.3s all linear",
+  "&:hover": { cursor: 'pointer', translate: '0px -0.3rem' },
   [theme.breakpoints.down('md')]:{
-    
-    '&> img':{height:'10rem !important'},
+ 
+        '&> img':{height:'10rem !important'},
     '&> div':{height:'10rem !important'}
   }
 
+}))
+
+const ImageListItemStyledBox = styled(Box)(({theme})=>({
+  display: 'flex', alignItems: 'center', justifyContent: 'space-evenly', width: '100%', height: '20rem', position: 'absolute', top: 0, left: 0, fontWeight: 'bold', color: 'white', fontSize: '18px', opacity: 0, transition: "0.3s all linear",
+  '&:hover': { backgroundColor: 'rgba(0,0,0,0.4)', opacity: 1 }
 }))
 
 const ContentMainPage = () => {
@@ -34,7 +41,7 @@ const ContentMainPage = () => {
 
   return (
     <>
-      <Grid container justifyContent='center'>
+      <Grid container   justifyContent='center'>
         <Grid item xs={12}>
           <ComponentHead />
         </Grid>
@@ -47,27 +54,24 @@ const ContentMainPage = () => {
 
 
 
-        <Grid item md={10} xs={11} display='flex' flexDirection='column' alignItems='center'>
+        <Grid  item md={10} xs={11} display='flex' flexDirection='column' alignItems='center'>
           <TabsSwitchComponent />
-          <Grid mt={0.3} item container sm={12} xs={12} spacing={5}>
+          
+          <Grid mt={0.3} item  container  xs={12} spacing={5}>
+          
             {storyImageData.map(element => {
               return (
 
-                <Grid item xs={4} key={element.text} >
-                  <ImageListItemStyled sx={{
-                    transition: "0.3s all linear",
-                    "&:hover": { cursor: 'pointer', translate: '0px -0.3rem' }
-                  }}>
+                <Grid item  xs={4} key={element.text} >
+                  <ImageListItemStyled 
+                  >
 
                     <img  style={{ width: '100%', height: '20rem', position: 'relative' }} src={element.image} />
-                    <Box sx={{
-                      display: 'flex', alignItems: 'center', justifyContent: 'space-evenly', width: '100%', height: '20rem', position: 'absolute', top: 0, left: 0, fontWeight: 'bold', color: 'white', fontSize: '18px', opacity: 0, transition: "0.3s all linear",
-                      '&:hover': { backgroundColor: 'rgba(0,0,0,0.4)', opacity: 1 }
-                    }}>
+                    <ImageListItemStyledBox >
                       <Box variant='h6' >❤ 23</Box>
                       <Box variant='h6' >🗨 99</Box>
 
-                    </Box>
+                    </ImageListItemStyledBox>
                   </ImageListItemStyled>
 
                 </Grid>

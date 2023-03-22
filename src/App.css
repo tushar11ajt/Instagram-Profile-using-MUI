@@ -3,7 +3,11 @@
 
 
 
-
+body{
+  padding: 0!important;
+  margin: 0;
+  overflow: auto!important;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -43,4 +47,7 @@
   to {
     transform: rotate(360deg);
   }
+}
+body{
+  transition: all 0.5s ease;
 }
