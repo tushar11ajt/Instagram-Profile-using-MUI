@@ -1,6 +1,8 @@
-.App {
-  text-align: center;
-}
+
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+
+
 
 .App-logo {
   height: 40vmin;
@@ -12,7 +14,13 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
+.asideBarProfileImage{
+  width: 30px; height: 30px; border-radius: 50%; border: 2px solid black;
 
+}
+.profileImage{
+  border-radius: 50%; width: 11.5rem; height: 11.5rem; 
+}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;

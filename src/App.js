@@ -1,25 +1,47 @@
-import logo from './logo.svg';
 import './App.css';
+import { createTheme, CssBaseline, Grid, ThemeProvider } from '@mui/material'
+
+import AsideBar from './Components/AsideBar';
+import ContentMainPage from './Components/ContentMainPage';
+import { createContext, memo,  useState } from 'react';
+
+export const ThemeSelection = createContext();
+export const ThemeChecker = createContext();
 
 function App() {
+  
+  const themes2 = createTheme({
+    palette: {
+      mode: 'light'
+    }
+  })
+  console.log('App . js')
+
+  const [themeState, setThemeState] = useState(themes2);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeSelection.Provider value={setThemeState}>
+      <ThemeChecker.Provider value={themeState}>
+
+        <ThemeProvider theme={(themeState)}>
+          <CssBaseline />
+          <Grid container>
+
+            <Grid item sx={{display:{sm:'none',md:"block"}}} lg={2} md={2}  >
+              <AsideBar />
+            </Grid>
+
+
+
+            <Grid item lg={10} md={10} sm={12} xs={12}>
+              <ContentMainPage />
+            </Grid>
+
+          </Grid>
+        </ThemeProvider>
+      </ThemeChecker.Provider>
+    </ThemeSelection.Provider>
   );
 }
 
-export default App;
+export default memo(App);
